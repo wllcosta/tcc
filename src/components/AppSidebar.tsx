@@ -1,20 +1,22 @@
 import { BookOpen, HelpCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-const menuItems = [
-  {
-    title: "Orientação de uso",
-    icon: HelpCircle,
-    onClick: () => console.log("Orientação de uso")
-  },
-  {
-    title: "Manual do usuário", 
-    icon: BookOpen,
-    onClick: () => console.log("Manual do usuário")
-  }
-]
+import { useNavigate } from "react-router-dom"
 
 export function AppSidebar() {
+  const navigate = useNavigate()
+
+  const menuItems = [
+    {
+      title: "Orientação de uso",
+      icon: HelpCircle,
+      onClick: () => navigate("/orientacao-uso")
+    },
+    {
+      title: "Manual do usuário", 
+      icon: BookOpen,
+      onClick: () => navigate("/manual-usuario")
+    }
+  ]
   return (
     <div className="w-64 bg-card border-r border-border p-4 space-y-2">
       {menuItems.map((item) => (

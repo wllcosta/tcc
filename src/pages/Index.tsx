@@ -17,7 +17,7 @@ const Index = () => {
           </div>
           
           <h1 className="text-2xl font-bold text-foreground">
-            Trabalho de conclusao de curso
+            Trabalho de Conclusão de Curso
           </h1>
           
           <div className="flex items-center justify-end gap-2">

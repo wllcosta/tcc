@@ -1,4 +1,4 @@
-import { X } from "lucide-react"
+import { X, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { AppSidebar } from "@/components/AppSidebar"
@@ -13,7 +13,9 @@ const Index = () => {
         {/* Header */}
         <header className="flex items-center justify-between p-4 border-b border-border bg-card/50 backdrop-blur-sm">
           <div className="flex items-center gap-2">
-            <SidebarTrigger className="rounded-xl hover:bg-accent/70 transition-all duration-300 hover:scale-105" />
+            <SidebarTrigger className="rounded-xl hover:bg-accent/70 transition-all duration-300 hover:scale-105 border border-border/20 hover:border-border/40 shadow-sm">
+              <Menu className="h-4 w-4" />
+            </SidebarTrigger>
           </div>
           
           <h1 className="text-2xl font-bold text-foreground">

@@ -29,24 +29,25 @@ export function AppSidebar() {
 
   return (
     <Sidebar 
-      collapsible="icon" 
-      className="border-r border-border/40 bg-card/80 backdrop-blur-sm rounded-r-2xl shadow-sm animate-fade-in"
+      collapsible="offcanvas"
+      className="border-r border-border/40 bg-card/90 backdrop-blur-sm rounded-r-2xl shadow-lg transition-all duration-500 ease-in-out animate-slide-in-right"
     >
-      <SidebarContent className="p-4">
+      <SidebarContent className="p-6">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-sm font-semibold text-muted-foreground mb-3">
+          <SidebarGroupLabel className="text-sm font-semibold text-muted-foreground mb-4 flex items-center gap-2">
+            <HelpCircle className="h-4 w-4" />
             Ajuda
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-2">
+            <SidebarMenu className="space-y-3">
               {helpMenuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton 
                     onClick={item.onClick}
-                    className="rounded-xl hover:bg-accent/70 transition-all duration-300 hover:scale-[1.02] hover:shadow-sm border border-transparent hover:border-border/20"
+                    className="rounded-xl hover:bg-accent/80 transition-all duration-300 hover:scale-[1.02] hover:shadow-md border border-transparent hover:border-border/30 p-3 animate-fade-in"
                   >
-                    <item.icon className="h-4 w-4" />
-                    <span className="text-sm">{item.title}</span>
+                    <item.icon className="h-5 w-5 text-primary" />
+                    <span className="text-sm font-medium">{item.title}</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

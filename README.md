@@ -1,73 +1,37 @@
-# Welcome to your Lovable project
+Comenta Aí – Projeto de TCC
+📌 Sobre o projeto
 
-## Project info
+O Comenta Aí é um sistema desenvolvido como Trabalho de Conclusão de Curso (TCC) com o objetivo de automatizar a documentação de código.
+Ele utiliza inteligência artificial para gerar comentários técnicos, guias e documentação de forma rápida, padronizada e profissional, economizando tempo dos desenvolvedores.
 
-**URL**: https://lovable.dev/projects/d6dd78e2-6009-43c4-9c56-653c2d4fb3e5
+🌐 Acesse o projeto
 
-## How can I edit this code?
+🔗 Clique aqui para acessar o Comenta Aí
 
-There are several ways of editing your application.
+🚀 Funcionalidades
 
-**Use Lovable**
+📄 Documentação Automática: Geração de comentários e guias técnicos sem esforço manual.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d6dd78e2-6009-43c4-9c56-653c2d4fb3e5) and start prompting.
+⚡ Rápido e Eficiente: Documentação pronta em minutos.
 
-Changes made via Lovable will be committed automatically to this repo.
+🧠 IA Inteligente: Analisa o código e gera explicações contextuais e relevantes.
 
-**Use your preferred IDE**
+🎯 Profissionalismo: Exportação com formatação clara e padronizada.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+🌍 Suporte Multilíngue: Funciona em diferentes linguagens de programação.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🛠️ Tecnologias utilizadas
 
-Follow these steps:
+React (com Vite e TypeScript)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Tailwind CSS (estilização)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Shadcn-UI (componentes)
 
-# Step 3: Install the necessary dependencies.
-npm i
+👨‍💻 Autores
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Projeto desenvolvido por Willian e Isabellly como parte do Trabalho de Conclusão de Curso – 2025.
 
-**Edit a file directly in GitHub**
+📜 Licença
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/d6dd78e2-6009-43c4-9c56-653c2d4fb3e5) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+© 2025 Comenta Aí. Todos os direitos reservados.

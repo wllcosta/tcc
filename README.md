@@ -1,37 +1,36 @@
-Comenta Aí – Projeto de TCC
-📌 Sobre o projeto
+# **Comenta Aí – Projeto de TCC**
 
-O Comenta Aí é um sistema desenvolvido como Trabalho de Conclusão de Curso (TCC) com o objetivo de automatizar a documentação de código.
+## 📌 Sobre o projeto
+O **Comenta Aí** é um sistema desenvolvido como Trabalho de Conclusão de Curso (TCC) com o objetivo de **automatizar a documentação de código**.  
 Ele utiliza inteligência artificial para gerar comentários técnicos, guias e documentação de forma rápida, padronizada e profissional, economizando tempo dos desenvolvedores.
 
-🌐 Acesse o projeto
+---
 
-🔗 Clique aqui para acessar o Comenta Aí
+## 🌐 Acesse o projeto
+🔗 [Clique aqui para acessar o Comenta Aí](https://tcc-rho-seven.vercel.app/)  
 
-🚀 Funcionalidades
+---
 
-📄 Documentação Automática: Geração de comentários e guias técnicos sem esforço manual.
+## 🚀 Funcionalidades
+- 📄 **Documentação Automática**: Geração de comentários e guias técnicos sem esforço manual.  
+- ⚡ **Rápido e Eficiente**: Documentação pronta em minutos.  
+- 🧠 **IA Inteligente**: Analisa o código e gera explicações contextuais e relevantes.  
+- 🎯 **Profissionalismo**: Exportação com formatação clara e padronizada.  
+- 🌍 **Suporte Multilíngue**: Funciona em diferentes linguagens de programação.  
 
-⚡ Rápido e Eficiente: Documentação pronta em minutos.
+---
 
-🧠 IA Inteligente: Analisa o código e gera explicações contextuais e relevantes.
+## 🛠️ Tecnologias utilizadas
+- **React** (com Vite e TypeScript)  
+- **Tailwind CSS** (estilização)  
+- **Shadcn-UI** (componentes)  
 
-🎯 Profissionalismo: Exportação com formatação clara e padronizada.
+---
 
-🌍 Suporte Multilíngue: Funciona em diferentes linguagens de programação.
+## 👨‍💻 Autores
+Projeto desenvolvido por **Willian e Isabellly** como parte do Trabalho de Conclusão de Curso – 2025.  
 
-🛠️ Tecnologias utilizadas
+---
 
-React (com Vite e TypeScript)
-
-Tailwind CSS (estilização)
-
-Shadcn-UI (componentes)
-
-👨‍💻 Autores
-
-Projeto desenvolvido por Willian e Isabellly como parte do Trabalho de Conclusão de Curso – 2025.
-
-📜 Licença
-
-© 2025 Comenta Aí. Todos os direitos reservados.
+## 📜 Licença
+© 2025 Comenta Aí. Todos os direitos reservados.  

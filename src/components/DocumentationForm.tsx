@@ -7,7 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
-// 🚀 Import da Google AI
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export function DocumentationForm() {
@@ -18,7 +17,6 @@ export function DocumentationForm() {
   const [isGenerating, setIsGenerating] = useState(false);
   const { toast } = useToast();
 
-  // ⚠️ Substitua pela sua chave da API (idealmente usando .env)
   const genAI = new GoogleGenerativeAI(
     import.meta.env.VITE_GOOGLE_API_KEY ||
       "AIzaSyAjU4MBgPkCwJDva6cg6n4bOTymmoCE1fA"
@@ -52,13 +50,15 @@ export function DocumentationForm() {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
       const prompt = `
-        Você é um assistente que gera documentação de código.
-        Gere uma documentação detalhada e clara em português para o seguinte projeto.
+        Você é um assistente que gera documentação de código em português.
+        Explique **de forma geral o que o código faz**, sem detalhar linha por linha.
 
         Nome do Projeto: ${projectName}
         Contexto: ${context || "Não informado"}
         Código:
         ${code}
+
+        Responda resumidamente, focando na função principal do código e nos componentes importantes.
       `;
 
       const result = await model.generateContent(prompt);
@@ -92,7 +92,7 @@ export function DocumentationForm() {
 
   return (
     <div className="flex-1 p-6 space-y-6">
-      {/* Inputs do formulário (mesmos que você já tinha) */}
+      {/* Inputs do formulário teste 123 (apagar isso dps) */}
       <div className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="project-name" className="text-sm font-medium">

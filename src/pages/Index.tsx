@@ -32,9 +32,6 @@ const Index = () => {
           
           <div className="flex items-center justify-end gap-2">
             <ThemeToggle />
-            <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
-              <X className="h-4 w-4" />
-            </Button>
           </div>
         </header>
 

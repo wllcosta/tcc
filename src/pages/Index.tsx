@@ -1,10 +1,10 @@
-import { X, Menu, ArrowLeft } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
-import { AppSidebar } from "@/components/AppSidebar"
-import { DocumentationForm } from "@/components/DocumentationForm"
-import { AppFooter } from "@/components/AppFooter"
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { X, Menu, ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { AppSidebar } from "@/components/AppSidebar";
+import { DocumentationForm } from "@/components/DocumentationForm";
+import { AppFooter } from "@/components/AppFooter";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 const Index = () => {
   return (
@@ -16,7 +16,7 @@ const Index = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => window.location.href = "/"}
+              onClick={() => (window.location.href = "/")}
               className="h-9 w-9 p-0"
             >
               <ArrowLeft className="h-4 w-4" />
@@ -25,11 +25,11 @@ const Index = () => {
               <Menu className="h-4 w-4" />
             </SidebarTrigger>
           </div>
-          
+
           <h1 className="text-2xl font-bold text-foreground">
             Trabalho de Conclusão de Curso
           </h1>
-          
+
           <div className="flex items-center justify-end gap-2">
             <ThemeToggle />
           </div>

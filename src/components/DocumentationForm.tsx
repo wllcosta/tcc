@@ -1,90 +1,98 @@
-import { useState } from "react"
-import { Upload, Copy, FileText } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent } from "@/components/ui/card"
-import { useToast } from "@/hooks/use-toast"
+import { useState } from "react";
+import { Upload, Copy, FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+
+// 🚀 Import da Google AI
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export function DocumentationForm() {
-  const [projectName, setProjectName] = useState("")
-  const [context, setContext] = useState("")
-  const [code, setCode] = useState("")
-  const [documentation, setDocumentation] = useState("")
-  const [isGenerating, setIsGenerating] = useState(false)
-  const { toast } = useToast()
+  const [projectName, setProjectName] = useState("");
+  const [context, setContext] = useState("");
+  const [code, setCode] = useState("");
+  const [documentation, setDocumentation] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const { toast } = useToast();
+
+  // ⚠️ Substitua pela sua chave da API (idealmente usando .env)
+  const genAI = new GoogleGenerativeAI(
+    import.meta.env.VITE_GOOGLE_API_KEY ||
+      "AIzaSyAjU4MBgPkCwJDva6cg6n4bOTymmoCE1fA"
+  );
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
+    const file = event.target.files?.[0];
     if (file) {
-      const reader = new FileReader()
+      const reader = new FileReader();
       reader.onload = (e) => {
-        setCode(e.target?.result as string)
-      }
-      reader.readAsText(file)
+        setCode(e.target?.result as string);
+      };
+      reader.readAsText(file);
     }
-  }
+  };
 
   const generateDocumentation = async () => {
     if (!projectName.trim() || (!context.trim() && !code.trim())) {
       toast({
         title: "Campos obrigatórios",
-        description: "Preencha o nome do projeto e pelo menos o contexto ou código.",
+        description:
+          "Preencha o nome do projeto e pelo menos o contexto ou código.",
         variant: "destructive",
-      })
-      return
+      });
+      return;
     }
 
-    setIsGenerating(true)
-    
-    // Simulação de geração de documentação
-    setTimeout(() => {
-      const mockDoc = `# Documentação do Projeto: ${projectName}
+    try {
+      setIsGenerating(true);
 
-## Visão Geral
-${context || "Projeto de desenvolvimento de software."}
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-## Estrutura do Código
-${code ? "Código fornecido analisado e documentado." : "Aguardando código para análise detalhada."}
+      const prompt = `
+        Você é um assistente que gera documentação de código.
+        Gere uma documentação detalhada e clara em português para o seguinte projeto.
 
-## Funcionalidades Principais
-- Funcionalidade 1: Descrição detalhada
-- Funcionalidade 2: Descrição detalhada
-- Funcionalidade 3: Descrição detalhada
+        Nome do Projeto: ${projectName}
+        Contexto: ${context || "Não informado"}
+        Código:
+        ${code}
+      `;
 
-## Como Usar
-1. Primeiro passo
-2. Segundo passo
-3. Terceiro passo
+      const result = await model.generateContent(prompt);
+      const response = await result.response.text();
 
-## Considerações Técnicas
-- Tecnologia utilizada
-- Padrões de desenvolvimento
-- Boas práticas implementadas
-
----
-*Documentação gerada automaticamente pelo Do Comenta Aí*`
-
-      setDocumentation(mockDoc)
-      setIsGenerating(false)
+      setDocumentation(response);
       toast({
         title: "Documentação gerada!",
         description: "A documentação foi criada com sucesso.",
-      })
-    }, 2000)
-  }
+      });
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Erro",
+        description:
+          "Não foi possível gerar a documentação. Verifique a chave da API.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsGenerating(false);
+    }
+  };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(documentation)
+    navigator.clipboard.writeText(documentation);
     toast({
       title: "Copiado!",
       description: "Documentação copiada para a área de transferência.",
-    })
-  }
+    });
+  };
 
   return (
     <div className="flex-1 p-6 space-y-6">
+      {/* Inputs do formulário (mesmos que você já tinha) */}
       <div className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="project-name" className="text-sm font-medium">
@@ -116,7 +124,7 @@ ${code ? "Código fornecido analisado e documentado." : "Aguardando código para
           <Label className="text-sm font-medium">
             Inserção de Código ou Arquivo
           </Label>
-          
+
           <div className="flex gap-4">
             <div className="flex-1">
               <div className="relative">
@@ -129,7 +137,9 @@ ${code ? "Código fornecido analisado e documentado." : "Aguardando código para
                 />
                 <Button
                   variant="outline"
-                  onClick={() => document.getElementById('file-upload')?.click()}
+                  onClick={() =>
+                    document.getElementById("file-upload")?.click()
+                  }
                   className="w-full h-12 border-dashed border-2 hover:border-primary/50 hover:bg-accent/20"
                 >
                   <Upload className="h-4 w-4 mr-2" />
@@ -205,5 +215,5 @@ ${code ? "Código fornecido analisado e documentado." : "Aguardando código para
         </Card>
       )}
     </div>
-  )
+  );
 }

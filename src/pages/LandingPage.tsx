@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { 
   Zap, 
   FileText, 
@@ -43,6 +44,11 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Theme Toggle */}
+      <div className="absolute top-4 right-4 z-10">
+        <ThemeToggle />
+      </div>
+      
       {/* Hero Section */}
       <section className="py-20 px-4 text-center bg-gradient-to-br from-background via-background to-muted/20">
         <div className="max-w-6xl mx-auto">

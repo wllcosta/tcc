@@ -28,7 +28,7 @@ Ele utiliza inteligência artificial para gerar comentários técnicos, guias e 
 ---
 
 ## 👨‍💻 Autores
-Projeto desenvolvido por **Willian e Isabellly** como parte do Trabalho de Conclusão de Curso – 2025.  
+Projeto desenvolvido por **Willian e Isabelle** como parte do Trabalho de Conclusão de Curso – 2025.  
 
 ---
 

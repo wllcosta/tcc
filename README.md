@@ -7,7 +7,7 @@ Ele utiliza inteligência artificial para gerar comentários técnicos, guias e 
 ---
 
 ## 🌐 Acesse o projeto
-🔗 [Clique aqui para acessar o Comenta Aí](https://comenta-ai-theta.vercel.app/sistema)  
+🔗 [Clique aqui para acessar o Comenta Aí](https://documenta-ai-theta.vercel.app/)  
 
 ---
 
@@ -28,7 +28,7 @@ Ele utiliza inteligência artificial para gerar comentários técnicos, guias e 
 ---
 
 ## 👨‍💻 Autores
-Projeto desenvolvido por **Willian e Isabelle** como parte do Trabalho de Conclusão de Curso – 2025.  
+Projeto desenvolvido por **Willian Desplanches Costa e Isabelle Nunes da Silva** como parte do Trabalho de Conclusão de Curso – 2025.  
 
 ---
 

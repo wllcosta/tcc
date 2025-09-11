@@ -19,20 +19,17 @@ const LandingPage = () => {
     {
       icon: Zap,
       title: "Rápido e Eficiente",
-      description:
-        "Gere documentação completa em minutos, não em horas. Nossa IA analisa seu código automaticamente.",
+      description: "Gere documentação completa automaticamente.",
     },
     {
       icon: FileText,
       title: "Documentação Profissional",
-      description:
-        "Crie manuais, guias técnicos e documentação de API com formatação profissional e padronizada.",
+      description: "Com formatação profissional e padronizada.",
     },
     {
       icon: Brain,
       title: "Inteligência Artificial",
-      description:
-        "IA avançada que compreende seu código e gera documentação contextual e relevante.",
+      description: "Nosso sistema utiliza IA para documentar seu código.",
     },
   ];
 
@@ -56,12 +53,12 @@ const LandingPage = () => {
       <section className="py-20 px-4 text-center bg-gradient-to-br from-background via-background to-muted/20">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Gere documentação automática e inteligente
+            Documenta Aí
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-4xl mx-auto leading-relaxed">
-            Transforme seu código em documentação profissional com apenas alguns
-            cliques. Nossa IA analisa seu projeto e cria documentos técnicos
-            completos e organizados.
+            Documente seu projeto de forma profissional e eficiente com apenas
+            alguns cliques. Nosso sistema analisa seu projeto e gera a
+            documentação técnica de forma organizada.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -111,11 +108,10 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Why Choose Section */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-foreground mb-16">
-            Por que escolher o Comenta Aí?
+            Por que escolher o Documenta Aí?
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -143,8 +139,7 @@ const LandingPage = () => {
             Pronto para revolucionar sua documentação?
           </h2>
           <p className="text-xl mb-10 opacity-90">
-            Junte-se a milhares de desenvolvedores que já economizam tempo com o
-            Comenta Aí.
+            Junte-se a modernidade otimizando seu tempo com o Documenta Ai!
           </p>
 
           <Button
@@ -163,11 +158,11 @@ const LandingPage = () => {
       <footer className="py-12 px-4 bg-muted/20 border-t">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-muted-foreground mb-2">
-            Projeto desenvolvido por Willian e Isabelle como parte do Trabalho
-            de Conclusão de Curso – 2025.
+            Projeto desenvolvido por Willian Desplanches Costa e Isabelle Nunes
+            da Silva como parte do Trabalho de Conclusão de Curso – 2025.
           </p>
           <p className="text-sm text-muted-foreground">
-            © 2025 Comenta Aí. Todos os direitos reservados.
+            © 2025 Documenta Aí. Todos os direitos reservados.
           </p>
         </div>
       </footer>

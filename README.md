@@ -1,7 +1,7 @@
-# **Comenta Aí – Projeto de TCC**
+# **Documenta Aí – Projeto de TCC**
 
 ## 📌 Sobre o projeto
-O **Comenta Aí** é um sistema desenvolvido como Trabalho de Conclusão de Curso (TCC) com o objetivo de **automatizar a documentação de código**.  
+O **Documenta Aí** é um sistema desenvolvido como Trabalho de Conclusão de Curso (TCC) com o objetivo de **automatizar a documentação de código**.  
 Ele utiliza inteligência artificial para gerar comentários técnicos, guias e documentação de forma rápida, padronizada e profissional, economizando tempo dos desenvolvedores.
 
 ---

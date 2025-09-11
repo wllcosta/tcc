@@ -7,7 +7,7 @@ Ele utiliza inteligência artificial para gerar comentários técnicos, guias e 
 ---
 
 ## 🌐 Acesse o projeto
-🔗 [Clique aqui para acessar o Comenta Aí](https://documenta-ai-theta.vercel.app/)  
+🔗 [Clique aqui para acessar o Documenta Aí](https://documenta-ai-theta.vercel.app/)  
 
 ---
 

@@ -7,7 +7,7 @@ Ele utiliza inteligência artificial para gerar comentários técnicos, guias e 
 ---
 
 ## 🌐 Acesse o projeto
-🔗 [Clique aqui para acessar o Comenta Aí](https://tcc-rho-seven.vercel.app/)  
+🔗 [Clique aqui para acessar o Comenta Aí](https://comenta-ai-theta.vercel.app/sistema)  
 
 ---
 

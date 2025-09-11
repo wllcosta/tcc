@@ -11,7 +11,7 @@ export function ManualUsuario() {
     {
       icon: Target,
       title: "Objetivo do Sistema",
-      content: "O Do Comenta Aí é uma ferramenta para desenvolvedores automatizarem a documentação de seus códigos. Facilita a criação de relatórios técnicos, manuais de uso e documentação para equipes."
+      content: "O Documenta Aí é uma ferramenta para desenvolvedores automatizarem a documentação de seus códigos. Facilita a criação de relatórios técnicos, manuais de uso e documentação para equipes."
     },
     {
       icon: Settings,
@@ -65,7 +65,7 @@ export function ManualUsuario() {
             </h1>
             
             <p className="text-lg text-muted-foreground mb-8 text-center">
-              Este manual descreve em detalhes o funcionamento do sistema Do Comenta Aí.
+              Este manual descreve em detalhes o funcionamento do sistema Do Documenta Aí.
             </p>
 
             <div className="grid gap-6">

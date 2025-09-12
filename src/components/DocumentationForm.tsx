@@ -100,7 +100,7 @@ export function DocumentationForm() {
           </Label>
           <Input
             id="project-name"
-            placeholder="Ex: API de autenticação, Jogo da memória..."
+            placeholder="Ex: Jogo da memória, sistema de gerenciamento..."
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
             className="w-full"
@@ -154,7 +154,7 @@ export function DocumentationForm() {
           </div>
 
           <Textarea
-            placeholder="Cole seu código aqui ou selecione um arquivo para análise."
+            placeholder="Cole seu código aqui..."
             value={code}
             onChange={(e) => setCode(e.target.value)}
             className="min-h-[200px] w-full resize-none font-mono text-sm"

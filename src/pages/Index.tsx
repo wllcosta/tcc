@@ -26,9 +26,7 @@ const Index = () => {
             </SidebarTrigger>
           </div>
 
-          <h1 className="text-2xl font-bold text-foreground">
-            Trabalho de Conclusão de Curso
-          </h1>
+          <h1 className="text-2xl font-bold text-foreground">Documenta Aí</h1>
 
           <div className="flex items-center justify-end gap-2">
             <ThemeToggle />

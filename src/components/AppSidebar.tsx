@@ -1,4 +1,4 @@
-import { BookOpen, HelpCircle } from "lucide-react"
+import { BookOpen, HelpCircle, Menu } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import {
   Sidebar,
@@ -9,6 +9,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarTrigger,
 } from "@/components/ui/sidebar"
 
 export function AppSidebar() {
@@ -33,6 +34,11 @@ export function AppSidebar() {
       className="border-r border-border/40 bg-card/90 backdrop-blur-sm rounded-r-2xl shadow-lg transition-all duration-500 ease-in-out animate-slide-in-right"
     >
       <SidebarContent className="p-6">
+        <div className="flex justify-end mb-4">
+          <SidebarTrigger className="rounded-xl hover:bg-accent/70 transition-all duration-300 hover:scale-105 border border-border/20 hover:border-border/40 shadow-sm">
+            <Menu className="h-4 w-4" />
+          </SidebarTrigger>
+        </div>
         <SidebarGroup>
           <SidebarGroupLabel className="text-sm font-semibold text-muted-foreground mb-4 flex items-center gap-2">
             <HelpCircle className="h-4 w-4" />

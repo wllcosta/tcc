@@ -7,11 +7,7 @@
 - O prompt é montado na constante `prompt` dentro dessa função.
 
 **Como Atualizar o Prompt**
-- Ajuste o texto da variável `prompt` para refletir o tom, o nível de detalhe e a estrutura desejados.
-- Exemplo de alterações úteis:
-  - Incluir seções fixas (Resumo, Como funciona, Principais funções, Limitações)
-  - Pedir bullets curtos e títulos em maiúsculas
-  - Solicitar linguagem mais simples ou mais técnica
+- Ajuste o texto da variável `prompt` para refletir a nova estrutura de prompt.
 - Após editar, salve e teste:
   - Local: `npm run dev:local` e faça `POST http://localhost:3000/api/generate`
   - Produção: `POST https://SEU-PROJ.vercel.app/api/generate`

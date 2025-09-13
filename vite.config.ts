@@ -8,6 +8,14 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    proxy: {
+      // Facilita o desenvolvimento local: redireciona /api para o backend
+      // Se usar `vercel dev`, ele roda na 3000 por padrão
+      "/api": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+      },
+    },
   },
   plugins: [
     react(),

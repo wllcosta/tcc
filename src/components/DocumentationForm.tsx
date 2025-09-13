@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
+// Agora chamamos o backend (/api/generate) para proteger a chave
 
 export function DocumentationForm() {
   const [projectName, setProjectName] = useState("");
@@ -17,10 +17,7 @@ export function DocumentationForm() {
   const [isGenerating, setIsGenerating] = useState(false);
   const { toast } = useToast();
 
-  const genAI = new GoogleGenerativeAI(
-    import.meta.env.VITE_GOOGLE_API_KEY ||
-      "AIzaSyAjU4MBgPkCwJDva6cg6n4bOTymmoCE1fA"
-  );
+  // Removido o uso direto da API Key no cliente
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -47,24 +44,16 @@ export function DocumentationForm() {
     try {
       setIsGenerating(true);
 
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-      const prompt = `
-        Você é um assistente que gera documentação de código em português.
-        Explique **de forma geral o que o código faz**, sem detalhar linha por linha.
-
-        Nome do Projeto: ${projectName}
-        Contexto: ${context || "Não informado"}
-        Código:
-        ${code}
-
-        Responda resumidamente, focando na função principal do código e nos componentes importantes.
-      `;
-
-      const result = await model.generateContent(prompt);
-      const response = await result.response.text();
-
-      setDocumentation(response);
+      const resp = await fetch(`/api/generate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ projectName, context, code }),
+      });
+      if (!resp.ok) {
+        throw new Error("Erro ao chamar o serviço de geração de documentação");
+      }
+      const data = await resp.json();
+      setDocumentation(data.text || "");
       toast({
         title: "Documentação gerada!",
         description: "A documentação foi criada com sucesso.",

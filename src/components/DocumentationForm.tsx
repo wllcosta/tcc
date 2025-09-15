@@ -143,7 +143,7 @@ export function DocumentationForm() {
           </div>
 
           <Textarea
-            placeholder="Cole seu código aqui..."
+            placeholder="Coloque seu código aqui, e não esqueça de especificar o arquivo (ex: App.js, index.html), e seu criador (ex: William Shakespeare)..."
             value={code}
             onChange={(e) => setCode(e.target.value)}
             className="min-h-[200px] w-full resize-none font-mono text-sm"

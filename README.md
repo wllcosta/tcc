@@ -125,4 +125,4 @@ Projeto desenvolvido por **Willian Desplanches Costa e Isabelle Nunes da Silva**
 ---
 
 ## 📜 Licença
-© 2025 Comenta Aí. Todos os direitos reservados.  
+© 2025 Documenta Aí. Todos os direitos reservados.  

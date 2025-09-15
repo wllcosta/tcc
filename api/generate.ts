@@ -1,7 +1,10 @@
-// Vercel Serverless Function to proxy Gemini requests without exposing the API key
+// api/generate.ts
+import { IncomingMessage, ServerResponse } from "http";
 import { generateDocumentation } from "../server/generate.js";
 
-function sendJson(res: any, status: number, data: any) {
+type JsonData = Record<string, unknown>;
+
+function sendJson(res: ServerResponse, status: number, data: JsonData) {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -10,7 +13,10 @@ function sendJson(res: any, status: number, data: any) {
   res.end(JSON.stringify(data));
 }
 
-export default async function handler(req: any, res: any) {
+export default async function handler(
+  req: IncomingMessage,
+  res: ServerResponse
+) {
   // CORS preflight
   if (req.method === "OPTIONS") {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -27,13 +33,14 @@ export default async function handler(req: any, res: any) {
     const apiKey = process.env.GOOGLE_API_KEY;
 
     // Parse raw body as JSON
-    const chunks: any[] = [];
+    const chunks: Uint8Array[] = [];
     await new Promise<void>((resolve, reject) => {
-      req.on("data", (c: any) => chunks.push(c));
+      req.on("data", (chunk) => chunks.push(chunk));
       req.on("end", () => resolve());
       req.on("error", reject);
     });
-    let parsed: any = {};
+
+    let parsed: { projectName?: string; context?: string; code?: string } = {};
     try {
       const raw = Buffer.concat(chunks).toString("utf8");
       parsed = raw ? JSON.parse(raw) : {};
@@ -42,22 +49,34 @@ export default async function handler(req: any, res: any) {
     }
 
     const { projectName, context, code } = parsed;
+
     try {
-      const text = await generateDocumentation({ projectName, context, code, apiKey });
+      const text = await generateDocumentation({
+        projectName,
+        context,
+        code,
+        apiKey,
+      });
       return sendJson(res, 200, { text });
-    } catch (e: any) {
-      if (e?.code === 'BAD_REQUEST') {
+    } catch (e: unknown) {
+      interface ErrorWithCode extends Error {
+        code?: string;
+      }
+
+      if ((e as ErrorWithCode).code === "BAD_REQUEST") {
         return sendJson(res, 400, {
           error:
             "Campos obrigatórios ausentes: informe o nome do projeto e contexto ou código.",
         });
       }
-      if (String(e?.message || '').includes('Missing GOOGLE_API_KEY')) {
-        return sendJson(res, 500, { error: "Missing GOOGLE_API_KEY on server" });
+
+      if (e instanceof Error && e.message.includes("Missing GOOGLE_API_KEY")) {
+        return sendJson(res, 500, {
+          error: "Missing GOOGLE_API_KEY on server",
+        });
       }
-      throw e;
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error("/api/generate error:", error);
     return sendJson(res, 500, { error: "Falha ao gerar a documentação." });
   }

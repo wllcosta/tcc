@@ -1,19 +1,22 @@
 import { spawn } from 'node:child_process';
 
 function run(cmd, args, name) {
-  const child = spawn(cmd, args, { stdio: 'inherit', shell: false });
+  // Usa shell no Windows para evitar spawn EINVAL
+  const child = spawn(cmd, args, { stdio: 'inherit', shell: process.platform === 'win32' });
+  
   child.on('error', (err) => {
     if (err.code === 'ENOENT' && name === 'vercel') {
-      // Fallback to npx if vercel CLI is not installed globally
+      // Fallback para npx se CLI do Vercel não estiver instalada
       console.log('[dev-local] vercel CLI não encontrada. Tentando via npx...');
       const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
-      const alt = spawn(npx, ['vercel', 'dev', '--listen', '3000'], { stdio: 'inherit' });
+      const alt = spawn(npx, ['vercel', 'dev', '--listen', '3000'], { stdio: 'inherit', shell: true });
       child.pid = alt.pid;
     } else {
       console.error(`[dev-local] Erro ao iniciar ${name}:`, err.message);
       process.exit(1);
     }
   });
+
   return child;
 }
 
@@ -23,11 +26,12 @@ const api = run(nodeCmd, ['scripts/local-api.mjs'], 'local-api');
 
 // Start vite dev on 8080
 const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-const vite = spawn(npmCmd, ['run', 'dev'], { stdio: 'inherit' });
+const vite = spawn(npmCmd, ['run', 'dev'], { stdio: 'inherit', shell: process.platform === 'win32' });
 
 let exiting = false;
 function shutdown(code = 0) {
-  if (exiting) return; exiting = true;
+  if (exiting) return;
+  exiting = true;
   if (vite && vite.pid) {
     try { vite.kill('SIGTERM'); } catch {}
   }
@@ -40,7 +44,7 @@ function shutdown(code = 0) {
 process.on('SIGINT', () => shutdown(0));
 process.on('SIGTERM', () => shutdown(0));
 
-// If one exits, stop the other
+// Se um finalizar, para o outro
 vite.on('exit', (code) => {
   console.log(`[dev-local] vite finalizado com código ${code}`);
   shutdown(code || 0);

@@ -6,8 +6,6 @@ export async function generateDocumentation({
   code,
   apiKey,
 }) {
-  console.log(apiKey);
-
   if (!apiKey) throw new Error("Missing GOOGLE_API_KEY");
   if (!projectName || (!context && !code)) {
     const e = new Error("Campos obrigatórios ausentes");

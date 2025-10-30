@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export async function generateDocumentation({
   projectName,
@@ -6,6 +6,8 @@ export async function generateDocumentation({
   code,
   apiKey,
 }) {
+  console.log(apiKey);
+
   if (!apiKey) throw new Error("Missing GOOGLE_API_KEY");
   if (!projectName || (!context && !code)) {
     const e = new Error("Campos obrigatórios ausentes");
@@ -13,8 +15,7 @@ export async function generateDocumentation({
     throw e;
   }
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const genAI = new GoogleGenAI({ apiKey });
 
   const prompt = `
         Você é um assistente técnico focado em documentar arquivos *do ponto de vista de negócio*.
@@ -106,7 +107,16 @@ export async function generateDocumentation({
         - Exemplos coerentes que podem virar testes.
         `;
 
-  const result = await model.generateContent(prompt);
-  const text = await result.response.text();
-  return text;
+const response = await genAI.models.generateContent({
+    model: "gemini-2.0-flash", 
+    contents: [
+      {
+        role: "user",
+        parts: [{ text: prompt }],
+      },
+    ],
+  });
+
+  const text = response.output_text ?? response.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+  return text.trim();
 }

@@ -1,27 +1,27 @@
-import { ArrowLeft, Target, Settings, List, Lightbulb } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { useNavigate } from "react-router-dom"
-
+import { ArrowLeft, Target, Settings, List, Lightbulb } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 export function ManualUsuario() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const sections = [
     {
       icon: Target,
       title: "Objetivo do Sistema",
-      content: "O Documenta Aí é uma ferramenta para desenvolvedores automatizarem a documentação de seus códigos. Facilita a criação de relatórios técnicos, manuais de uso e documentação para equipes."
+      content:
+        "O Documenta Aí é uma ferramenta para desenvolvedores automatizarem a documentação de seus códigos. Facilita a criação de relatórios técnicos, manuais de uso e documentação para equipes.",
     },
     {
       icon: Settings,
       title: "Funcionalidades Principais",
       content: [
         "Entrada de código manual ou por arquivo",
-        "Geração automática de documentação em texto estruturado", 
+        "Geração automática de documentação em texto estruturado",
         "Alternância entre tema claro e escuro",
-        "Opção de copiar o resultado com um clique"
-      ]
+        "Opção de copiar o resultado com um clique",
+      ],
     },
     {
       icon: List,
@@ -30,8 +30,8 @@ export function ManualUsuario() {
         "Inserir informações iniciais (nome e contexto)",
         "Adicionar o código (texto ou arquivo)",
         "Gerar a documentação",
-        "Revisar e copiar o resultado"
-      ]
+        "Revisar e copiar o resultado",
+      ],
     },
     {
       icon: Lightbulb,
@@ -39,18 +39,18 @@ export function ManualUsuario() {
       content: [
         "Forneça descrições claras no campo de contexto para uma documentação mais completa",
         "Prefira códigos bem identados para melhor leitura pelo sistema",
-        "Use nomes de projeto consistentes para facilitar buscas futuras"
-      ]
-    }
-  ]
+        "Use nomes de projeto consistentes para facilitar buscas futuras",
+      ],
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/20 p-6">
       <div className="max-w-4xl mx-auto">
         <div className="mb-6">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate("/")}
+          <Button
+            variant="ghost"
+            onClick={() => navigate("/sistema")}
             className="gap-2 hover:bg-accent/50 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -61,16 +61,20 @@ export function ManualUsuario() {
         <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm">
           <CardContent className="p-8">
             <h1 className="text-3xl font-bold text-center mb-6 text-foreground">
-              Manual do Usuário
+              Manual de Uso
             </h1>
-            
+
             <p className="text-lg text-muted-foreground mb-8 text-center">
-              Este manual descreve em detalhes o funcionamento do sistema Do Documenta Aí.
+              Este manual descreve em detalhes o funcionamento do sistema Do
+              Documenta Aí.
             </p>
 
             <div className="grid gap-6">
               {sections.map((section, index) => (
-                <Card key={index} className="border border-border/50 shadow-sm hover:shadow-md transition-shadow">
+                <Card
+                  key={index}
+                  className="border border-border/50 shadow-sm hover:shadow-md transition-shadow"
+                >
                   <CardHeader className="pb-4">
                     <CardTitle className="flex items-center gap-3 text-xl">
                       <div className="p-2 rounded-lg bg-primary/10">
@@ -83,8 +87,13 @@ export function ManualUsuario() {
                     {Array.isArray(section.content) ? (
                       <ul className="space-y-2">
                         {section.content.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start gap-2 text-muted-foreground">
-                            <span className="text-primary font-bold mt-1">•</span>
+                          <li
+                            key={itemIndex}
+                            className="flex items-start gap-2 text-muted-foreground"
+                          >
+                            <span className="text-primary font-bold mt-1">
+                              •
+                            </span>
                             <span className="leading-relaxed">{item}</span>
                           </li>
                         ))}
@@ -102,5 +111,5 @@ export function ManualUsuario() {
         </Card>
       </div>
     </div>
-  )
+  );
 }

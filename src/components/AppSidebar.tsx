@@ -1,35 +1,29 @@
-import { BookOpen, HelpCircle, Menu } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { BookOpen, HelpCircle, Menu } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export function AppSidebar() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const helpMenuItems = [
     {
-      title: "Orientação de uso",
-      icon: HelpCircle,
-      onClick: () => navigate("/orientacao-uso")
-    },
-    {
-      title: "Manual do usuário", 
+      title: "Manual de Uso",
       icon: BookOpen,
-      onClick: () => navigate("/manual-usuario")
-    }
-  ]
+      onClick: () => navigate("/manual-usuario"),
+    },
+  ];
 
   return (
-    <Sidebar 
+    <Sidebar
       collapsible="offcanvas"
       className="border-r border-border/40 bg-card/90 backdrop-blur-sm rounded-r-2xl shadow-lg transition-all duration-500 ease-in-out animate-slide-in-right"
     >
@@ -40,15 +34,11 @@ export function AppSidebar() {
           </SidebarTrigger>
         </div>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-sm font-semibold text-muted-foreground mb-4 flex items-center gap-2">
-            <HelpCircle className="h-4 w-4" />
-            Ajuda
-          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="space-y-3">
               {helpMenuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton 
+                  <SidebarMenuButton
                     onClick={item.onClick}
                     className="rounded-xl hover:bg-accent/80 transition-all duration-300 hover:scale-[1.02] hover:shadow-md border border-transparent hover:border-border/30 p-3 animate-fade-in"
                   >
@@ -62,5 +52,5 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }

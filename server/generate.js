@@ -44,16 +44,14 @@ export async function generateDocumentation({
         - Não copie o código; *não explique função por função*.
         - Se algo não puder ser inferido, escreva “(não identificado no arquivo)”.
         - Produza somente o documento final; *não mostre suas etapas de raciocínio*.
+        - **Não inclua as linhas "Arquivo" e "Responsável" na saída final.**
 
         # SAÍDA — FORMATO OBRIGATÓRIO
         # Doc do Arquivo
 
         - *Sistema/Projeto:* ${projectName || "Não informado"}
         - *Contexto:* ${context || "Não informado"}
-        - *Arquivo:* (não identificado no upload)
-        - *Responsável:* (não identificado no arquivo)
         - *Última atualização:* ${new Date().toISOString().split("T")[0]}
-
 
         ## O que esse arquivo resolve?
         {{2–4 linhas com problema/resultado de negócio}}
@@ -105,8 +103,8 @@ export async function generateDocumentation({
         - Exemplos coerentes que podem virar testes.
         `;
 
-const response = await genAI.models.generateContent({
-    model: "gemini-2.0-flash", 
+  const response = await genAI.models.generateContent({
+    model: "gemini-2.0-flash",
     contents: [
       {
         role: "user",
@@ -115,6 +113,9 @@ const response = await genAI.models.generateContent({
     ],
   });
 
-  const text = response.output_text ?? response.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+  const text =
+    response.output_text ??
+    response.candidates?.[0]?.content?.parts?.[0]?.text ??
+    "";
   return text.trim();
 }

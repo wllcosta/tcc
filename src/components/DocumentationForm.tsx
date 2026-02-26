@@ -7,8 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
-// Agora chamamos o backend (/api/generate) para proteger a chave
-
 export function DocumentationForm() {
   const [projectName, setProjectName] = useState("");
   const [context, setContext] = useState("");
@@ -16,8 +14,6 @@ export function DocumentationForm() {
   const [documentation, setDocumentation] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const { toast } = useToast();
-
-  // Removido o uso direto da API Key no cliente
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -81,7 +77,6 @@ export function DocumentationForm() {
 
   return (
     <div className="flex-1 p-6 space-y-6">
-      {/* Inputs do formulário teste 123 (apagar isso dps) */}
       <div className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="project-name" className="text-sm font-medium">

@@ -53,7 +53,6 @@ const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url || "/", `http://${req.headers.host}`);
 
-    // CORS preflight
     if (req.method === "OPTIONS") {
       res.writeHead(200, {
         "Access-Control-Allow-Origin": "*",
@@ -77,7 +76,6 @@ const server = http.createServer(async (req, res) => {
       });
     }
 
-    // Parse JSON body with ~1MB limit
     const chunks = [];
     let size = 0;
     await new Promise((resolve, reject) => {
